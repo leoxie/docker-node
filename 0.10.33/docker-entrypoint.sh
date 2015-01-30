@@ -4,10 +4,6 @@ set -e
 cd /usr/src/app
 
 appStart(){
-  if [ -n $1 ]; then
-	npm install
-  fi
-
   grunt deploy
   npm start
 }
@@ -18,10 +14,10 @@ appBuild(){
 
 appHelp(){
   echo "Available options:"
-  echo " app:build            - 初始化app"
-  echo " app:start <rebuild>  - 如果设置参数，会执行build，否则start"
-  echo " app:help             - Displays the help"
-  echo " [command]            - Execute the specified linux command eg. bash."
+  echo " app:build  - 初始化app"
+  echo " app:start  - start"
+  echo " app:help   - Displays the help"
+  echo " [command]  - Execute the specified linux command eg. bash."
 }
 
 case "$1" in
@@ -30,7 +26,7 @@ case "$1" in
     ;;
   app:start)
     shift 1
-    appStart $@
+    appStart
     ;;
   app:help)
     appHelp
