@@ -25,7 +25,6 @@ case "$1" in
     appBuild
     ;;
   app:start)
-    shift 1
     appStart
     ;;
   app:help)
